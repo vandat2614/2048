@@ -3,11 +3,11 @@ from board import Board
 from agent import Agent
 from buffer import ReplayMemory
 
-NUM_EPISODE = 100
+NUM_EPISODE = 500
 EPS_START = 0.9
 EPS_END = 0.01
 EPS_DECAY = 0.99
-BATCH_SIZE = 32
+BATCH_SIZE = 96
 TARGET_UPDATE = 5 
 MAX_EPISODE_LENGTH = 100
 
