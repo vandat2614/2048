@@ -42,7 +42,7 @@ for episode in range(NUM_EPISODE):
             agent.update_model(list(batch_state), batch_action, batch_reward, list(batch_next_state), batch_done)
 
         if done:
-            print(f"Episode {episode + 1}: Total Reward = {env.score} Max = {max(env.board)}")
+            print(f"Episode {episode + 1}: Total Reward = {env.score} Max = {max(next_state)}")
             break
 
     if episode % TARGET_UPDATE == 0:
