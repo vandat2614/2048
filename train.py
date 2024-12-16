@@ -6,7 +6,7 @@ from buffer import ReplayMemory
 NUM_EPISODE = 100
 EPS_START = 0.9
 EPS_END = 0.01
-EPS_DECAY = 0.999
+EPS_DECAY = 0.99
 BATCH_SIZE = 32
 TARGET_UPDATE = 5 
 MAX_EPISODE_LENGTH = 100
@@ -41,8 +41,8 @@ for episode in range(NUM_EPISODE):
             batch_state, batch_action, batch_reward, batch_next_state, batch_done = zip(*transitions)
             agent.update_model(list(batch_state), batch_action, batch_reward, list(batch_next_state), batch_done)
 
-        if done or episode_length > MAX_EPISODE_LENGTH:
-            print(f"Episode {episode + 1}: Total Reward = {env.score}")
+        if done:
+            print(f"Episode {episode + 1}: Total Reward = {env.score} Max = {max(env.board)}")
             break
 
     if episode % TARGET_UPDATE == 0:
